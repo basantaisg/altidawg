@@ -26,7 +26,7 @@ export class AiService {
   }
 
   // 🧠 AI Trip Planner
-  async planTrip(city: string, days: number, interests: string[]) {
+  async planTrip(city: string, days: number, interests?: string[]) {
     // 1️⃣ Pull relevant experiences from DB
     const exps = await this.prisma.experience.findMany({
       where: { city: { equals: city, mode: "insensitive" }, isActive: true },
@@ -48,13 +48,19 @@ export class AiService {
       )
       .join("\n\n");
 
+    // Safe fallback for missing or wrong interests
+    const safeInterests = Array.isArray(interests) ? interests : [];
+    const interestsText = safeInterests.length
+      ? safeInterests.join(", ")
+      : "general tourism";
+
     const prompt = `
       You are a Nepali travel planner AI.
       Create a ${days}-day trip itinerary for ${city}, based on these local experiences:
 
       ${context}
 
-      Focus on user interests: ${interests.join(", ")}.
+      Focus on user interests: ${interestsText}.
       The output must be pure JSON:
 
       {
