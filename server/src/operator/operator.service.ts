@@ -27,4 +27,27 @@ export class OperatorService {
   async findByApiKey(apiKey: string) {
     return this.prisma.operator.findUnique({ where: { apiKey } });
   }
+
+  async getAnalytics(operatorId: string) {
+    const experiences = await this.prisma.experience.findMany({
+      where: { operatorId },
+      select: { id: true },
+    });
+
+    const experienceIds = experiences.map((e) => e.id);
+
+    const slots = await this.prisma.slot.findMany({
+      where: { experienceId: { in: experienceIds } },
+      select: { id: true },
+    });
+
+    const slotIds = slots.map((s) => s.id);
+
+    const bookings = await this.prisma.booking.findMany({
+      where: { slotId: { in: slotIds } },
+      select: { status: true },
+    });
+
+    const confirmed = bookings.filter((b) => (b.status = "CONFIRMED"));
+  }
 }
