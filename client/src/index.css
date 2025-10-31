@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 17% 98%;
+    --foreground: 211 48% 22%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 211 48% 22%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 211 48% 22%;
+
+    --primary: 356 76% 59%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 211 48% 22%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 17% 95%;
+    --muted-foreground: 211 20% 50%;
+
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 356 76% 59%;
+
+    --radius: 0.75rem;
+
+    /* Nepal theme specific */
+    --hero-gradient: linear-gradient(135deg, hsl(356, 76%, 59%) 0%, hsl(211, 48%, 22%) 100%);
+    --mountain-overlay: linear-gradient(180deg, transparent 0%, hsl(211, 48%, 22%, 0.8) 100%);
+    --card-hover-shadow: 0 20px 40px -10px hsl(356, 76%, 59%, 0.2);
+  }
+
+  .dark {
+    --background: 211 48% 12%;
+    --foreground: 210 17% 98%;
+
+    --card: 211 45% 18%;
+    --card-foreground: 210 17% 98%;
+
+    --popover: 211 45% 18%;
+    --popover-foreground: 210 17% 98%;
+
+    --primary: 356 76% 59%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 211 48% 22%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 211 45% 20%;
+    --muted-foreground: 210 17% 70%;
+
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 211 45% 25%;
+    --input: 211 45% 25%;
+    --ring: 356 76% 59%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .mountain-overlay {
+    background: var(--mountain-overlay);
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.4s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
