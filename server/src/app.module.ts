@@ -1,11 +1,17 @@
-import { Module } from '@nestjs/common';
-import { OperatorModule } from './operator/operator.module';
-import { ExperienceModule } from './experience/experience.module';
-import { BookingModule } from './booking/booking.module';
-import { SharedModule } from './shared/shared.module';
-import { PrismaModule } from './prisma/prisma.module';
+import { Module } from "@nestjs/common";
+import { OperatorModule } from "./operator/operator.module.js";
+import { ExperienceModule } from "./experience/experience.module.js";
+import { BookingModule } from "./booking/booking.module.js";
+import { SharedModule } from "./shared/shared.module.js";
+import { PrismaModule } from "./prisma/prisma.module.js";
 
 @Module({
-  imports: [OperatorModule, ExperienceModule, BookingModule, SharedModule, PrismaModule],
+  imports: [
+    OperatorModule,
+    ExperienceModule,
+    BookingModule,
+    SharedModule,
+    PrismaModule,
+  ],
 })
 export class AppModule {}

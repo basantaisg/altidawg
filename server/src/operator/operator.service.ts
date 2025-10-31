@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
-import { PrismaService } from "src/prisma/prisma.service";
-import { CreateOperatorDto } from "./dto/create-operator.dto";
+import { PrismaService } from "../prisma/prisma.service.js";
+import { CreateOperatorDto } from "./dto/create-operator.dto.js";
 import { randomBytes } from "crypto";
 
 @Injectable()
@@ -48,6 +48,17 @@ export class OperatorService {
       select: { status: true },
     });
 
-    const confirmed = bookings.filter((b) => (b.status = "CONFIRMED"));
+    const confirmed = bookings.filter((b) => b.status === "CONFIRMED").length;
+    const pending = bookings.filter((b) => b.status === "PENDING").length;
+    const declined = bookings.filter((b) => b.status === "DECLINED").length;
+
+    return {
+      totalExperiences: experiences.length,
+      totalSlots: slots.length,
+      totalBookings: bookings.length,
+      confirmed,
+      pending,
+      declined,
+    };
   }
 }

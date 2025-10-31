@@ -2,6 +2,7 @@ import {
   IsEmail,
   IsNotEmpty,
   IsNumberString,
+  IsOptional,
   IsPhoneNumber,
   IsString,
 } from "class-validator";
@@ -17,5 +18,6 @@ export class CreateOperatorDto {
   phone: string;
 
   @IsEmail()
-  email: string;
+  @IsOptional()
+  email?: string;
 }

@@ -1,13 +1,14 @@
 
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
   output   = "../generated/prisma"
 }
 
+
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://neondb_owner:npg_5ySi1BxpUuWa@ep-wispy-paper-a19k55ek-pooler.ap-southeast-1.aws.neon.tech/bakadawg?sslmode=require&channel_binding=require"
+  url      = env("DATABASE_URL")
 }
 
 model Operator {
@@ -66,5 +67,4 @@ enum BookingStatus {
   PENDING
   CONFIRMED
   DECLINED
-  CANCELLED
 }
