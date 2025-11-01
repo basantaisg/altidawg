@@ -4,6 +4,7 @@ import { SlotService } from "./slot.service";
 import { OperatorGuard } from "../operator/operator.guard";
 import { PrismaModule } from "../prisma/prisma.module";
 
+// slpt
 @Module({
   imports: [PrismaModule],
   controllers: [SlotController],
