@@ -1,6 +1,6 @@
-# 🗺️ NepTrip — AI-Powered Local Tourism Platform
+# 🗺️ AltiDawg — AI-Powered Local Tourism Platform
 
-NepTrip connects travelers with authentic **local experiences** in Nepal —  
+AltiDawg connects travelers with authentic **local experiences** in Nepal —  
 treks, homestays, food tours — all managed by local operators through a single API.
 
 Built for **100xNepal Hackathon 2025**, powered by **NestJS + Prisma + Gemini AI**.
@@ -9,7 +9,7 @@ Built for **100xNepal Hackathon 2025**, powered by **NestJS + Prisma + Gemini AI
 
 ## 🚀 Overview
 
-NepTrip lets:
+AltiDawg Trip lets:
 - **Operators** list their experiences, manage bookings, and see analytics  
 - **Travelers** discover nearby adventures and instantly book slots  
 - **AI (Gemini 1.5 Flash)** generate smart tags, summaries, and personalized itineraries  
