@@ -4,8 +4,9 @@ import { ExperienceModule } from "./experience/experience.module.js";
 import { BookingModule } from "./booking/booking.module.js";
 import { SharedModule } from "./shared/shared.module.js";
 import { PrismaModule } from "./prisma/prisma.module.js";
-import { SlotModule } from './slot/slot.module';
-import { AiModule } from './ai/ai.module';
+import { SlotModule } from "./slot/slot.module";
+import { AiModule } from "./ai/ai.module";
+import { ConfigModule } from "@nestjs/config";
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AiModule } from './ai/ai.module';
     PrismaModule,
     SlotModule,
     AiModule,
+    ConfigModule.forRoot({ isGlobal: true }),
   ],
 })
 export class AppModule {}
